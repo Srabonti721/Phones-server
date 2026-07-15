@@ -1,8 +1,11 @@
 const express = require('express');
+const cors = require("cors")
 const phones = require('./phones.json')
 const app = express();
 const port = 5000;
 
+
+app.use(cors())
 app.get('/', (req,res)=>{
     res.send("hello this is ashs my phones server")
 })
@@ -18,6 +21,8 @@ app.get('/phones/:id', (req,res)=>{
     res.send(phone)
 
 })
+
+
 
 app.listen(port, ()=>{
     console.log(`Phone server is running on port :${port}`);
